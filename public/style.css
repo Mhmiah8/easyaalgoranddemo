@@ -1,0 +1,44 @@
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.algorand-badge {
+    background: linear-gradient(45deg, #000000, #5c5c5c);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.contract-card {
+    border-left: 4px solid #007bff;
+}
+
+.contract-card.paid {
+    border-left-color: #28a745;
+}
+
+.contract-card.funded {
+    border-left-color: #ffc107;
+}
+
+.wallet-connected {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.status-badge {
+    font-size: 0.8em;
+    padding: 4px 8px;
+}

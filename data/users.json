@@ -1,0 +1,56 @@
+{
+  "bob": {
+    "password": "bob",
+    "role": "employer",
+    "wallet": null,
+    "createdAt": "2025-10-19T05:14:24.214Z"
+  },
+  "bobby": {
+    "password": "bobby",
+    "role": "freelancer",
+    "wallet": null,
+    "createdAt": "2025-10-19T05:21:08.590Z"
+  },
+  "bobs": {
+    "password": "remus",
+    "role": "employer",
+    "wallet": null,
+    "createdAt": "2025-10-19T05:36:31.227Z"
+  },
+  "random": {
+    "password": "randpm",
+    "role": "employer",
+    "wallet": null,
+    "createdAt": "2025-10-19T05:45:51.915Z"
+  },
+  "tc": {
+    "password": "tc",
+    "role": "employer",
+    "wallet": null,
+    "createdAt": "2025-10-19T05:55:11.777Z"
+  },
+  "wd": {
+    "password": "wd",
+    "role": "freelancer",
+    "wallet": null,
+    "createdAt": "2025-10-19T05:58:44.275Z"
+  },
+  "rc": {
+    "password": "rc",
+    "role": "employer",
+    "wallet": null,
+    "createdAt": "2025-10-19T08:15:22.035Z"
+  },
+  "pp": {
+    "password": "pp",
+    "role": "employer",
+    "wallet": null,
+    "createdAt": "2025-10-19T08:23:46.535Z"
+  },
+  "pq": {
+    "password": "pq",
+    "role": "employer",
+    "wallet": null,
+    "createdAt": "2025-10-19T08:30:12.946Z"
+  }
+}

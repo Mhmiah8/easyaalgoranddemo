@@ -1,0 +1,48 @@
+# Trustless Payroll Smart Contract - Algorand Hackathon
+# Written in PyTeal for Algorand Blockchain
+
+from pyteal import *
+
+def payroll_escrow():
+    # On contract creation - store employer, freelancer, and amount
+    on_creation = Seq([
+        AppGlobalPut(Bytes("employer"), Txn.application_args[0]),
+        AppGlobalPut(Bytes("freelancer"), Txn.application_args[1]),
+        AppGlobalPut(Bytes("amount"), Btoi(Txn.application_args[2])),
+        AppGlobalPut(Bytes("status"), Bytes("funded")),
+        Return(Int(1))
+    ])
+    
+    # Release payment - only employer can call this
+    release_payment = Seq([
+        # Verify the caller is the employer
+        Assert(Txn.sender() == AppGlobalGet(Bytes("employer"))),
+        
+        # Verify contract is still in funded state
+        Assert(AppGlobalGet(Bytes("status")) == Bytes("funded")),
+        
+        # Update status to paid
+        AppGlobalPut(Bytes("status"), Bytes("paid")),
+        
+        # Return success
+        Return(Int(1))
+    ])
+    
+    # Handle different application calls
+    handle_noop = Seq([
+        Cond(
+            [Txn.application_args[0] == Bytes("release"), release_payment]
+        )
+    ])
+    
+    # Main program logic
+    program = Cond(
+        [Txn.application_id() == Int(0), on_creation],
+        [Txn.on_completion() == OnComplete.NoOp, handle_noop]
+    )
+    
+    return program
+
+# Compile the contract
+if __name__ == "__main__":
+    print(compileTeal(payroll_escrow(), Mode.Application, version=6))
